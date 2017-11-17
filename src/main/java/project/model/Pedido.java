@@ -15,6 +15,4 @@ public class Pedido {
     private Comprador comprador;
     private Vendedor vendedor;
     private List<Item> items;
-    private
-
 }
