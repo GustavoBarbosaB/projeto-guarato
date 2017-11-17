@@ -17,6 +17,6 @@ public class Pendente implements State {
 
     @Override
     public boolean change() {
-        return false;
+        return true;
     }
 }

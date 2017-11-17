@@ -25,11 +25,10 @@ public class CompradorController {
     /**
 
      * @param cpf (obrigatorio)
-     * @param nome ( não obrigatorio)
      * @return retonar todos os compradores por cpf
      */
     @RequestMapping(value="/comprador/{cpf}",method = GET)
-    public List<Comprador> comprador(@PathVariable("cpf") String cpf,@RequestParam(value="nome", required = false) String nome){
+    public List<Comprador> comprador(@PathVariable("cpf") String cpf){
 
         List<Comprador> returnCompradores = new ArrayList<>();
 
@@ -39,7 +38,7 @@ public class CompradorController {
              * Testa se cpf e nome são iguais as passadas na URL
              * se for salva na lista de compradores a serem retornados
              */
-            if(comprador.getCPF().equals(cpf) && comprador.getNome().equals(nome)){
+            if(comprador.getCPF().equals(cpf)){
             returnCompradores.add(comprador);
             }
         }
@@ -48,14 +47,11 @@ public class CompradorController {
     }
 
     @RequestMapping(value="/addComprador", method = POST)
-    public String addComprador(@RequestBody Comprador comprador, @RequestBody Endereco endereco, BindingResult result){
+    public String addComprador(@RequestBody Comprador comprador, BindingResult result){
 
         if (result.hasErrors()) {
             return "error";
         }
-
-        comprador.setEnd(endereco);
-
         compradores.add(comprador);
 
         return "OK";
@@ -86,7 +82,7 @@ public class CompradorController {
         int i;
         for(i=0;i < compradores.size();i++)
         {
-            if(compradores.get(i).getCPF() == cpf) {
+            if(compradores.get(i).getCPF().equals(cpf)) {
                 changeCarHelp(comprador,compradores.get(i));
                 break;
             }

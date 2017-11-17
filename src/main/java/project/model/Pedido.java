@@ -1,5 +1,7 @@
 package project.model;
 
+import project.model.state.State;
+
 import java.util.List;
 
 public class Pedido {
@@ -31,4 +33,5 @@ public class Pedido {
     private Comprador comprador;
     private Vendedor vendedor;
     private List<Item> items;
+    private State state;
 }

@@ -14,6 +14,6 @@ public class Iniciado implements State{
 
     @Override
     public boolean change() {
-        return true;
+        return false;
     }
 }
