@@ -6,7 +6,7 @@ public class Pendente implements State {
         return new Finalizado();
     }
 
-    public State cancel(){
+    public static State cancel(){
         return new Cancelado();
     }
 
