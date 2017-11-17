@@ -33,11 +33,10 @@ public class VendedorController {
 
     /**
      * @param cnpj (obrigatorio)
-     * @param razaosocial (não obrigatorio)
      * @return retonar todos os vendedores por cnpj
      */
     @RequestMapping(value="/vendedor/{cnpj}",method = GET)
-    public List<Vendedor> vendedor(@PathVariable("cnpj") String cnpj,@RequestParam(value="razaosocial", required = false) String razaosocial){
+    public List<Vendedor> vendedor(@PathVariable("cnpj") String cnpj){
 
         List<Vendedor> returnVendedores = new ArrayList<>();
 
@@ -47,7 +46,7 @@ public class VendedorController {
              * Testa se a cor e a marca é igual as passadas na URL
              * se for salva na lista de carros a serem retornados
              */
-            if(car.getCNPJ().equals(cnpj) && car.getRazaoSocial().equals(razaosocial)){
+            if(car.getCNPJ().equals(cnpj)){
                 returnVendedores.add(car);
             }
         }
@@ -89,7 +88,7 @@ public class VendedorController {
     public String changeVendedor(@RequestBody Vendedor vendedor, @PathVariable String cnpj)
     {
         int i;
-        for(i=0;i < vendedores.size();i++)
+        for(i = 0 ;i < vendedores.size(); i++)
         {
             if(vendedores.get(i).getCNPJ().equals(cnpj)) {
                 changeVendedorHelp(vendedor,vendedores.get(i));
