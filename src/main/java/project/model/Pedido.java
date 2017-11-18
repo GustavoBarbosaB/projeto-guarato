@@ -1,5 +1,6 @@
 package project.model;
 
+import project.model.item.ListItem;
 import project.model.state.Iniciado;
 import project.model.state.Pendente;
 import project.model.state.State;
@@ -11,7 +12,7 @@ public class Pedido {
 
     private int comprador;
     private int vendedor;
-    Map<Integer,Integer> items; // <item,quantidade>
+    List<ListItem> itens;
     private State state;
 
     public Pedido()
@@ -35,12 +36,12 @@ public class Pedido {
         this.vendedor = vendedor;
     }
 
-    Map<Integer,Integer> getItems() {
-        return items;
+    List<ListItem> getItems() {
+        return itens;
     }
 
-    public void setItems( Map<Integer,Integer> items) {
-        this.items = items;
+    public void setItems( List<ListItem> itens) {
+        this.itens = itens;
     }
 
     public void cancel(){

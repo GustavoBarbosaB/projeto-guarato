@@ -3,6 +3,7 @@ package project.model;
 public class Comprador {
 
     private String Nome;
+    //Será PK
     private String CPF;
     private Endereco End;
 

@@ -1,7 +1,8 @@
-package project.model;
+package project.model.item;
 
 public class Item {
 
+    private int id;
     private String desc;
     private float val;
 
@@ -9,9 +10,10 @@ public class Item {
 
     }
 
-    public Item(String desc, float val) {
+    public Item(String desc, float val, int id) {
         this.desc = desc;
         this.val = val;
+        this.id = id;
 
     }
 

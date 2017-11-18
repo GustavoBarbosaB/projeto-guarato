@@ -2,6 +2,8 @@ package project.model;
 
 public class Endereco {
 
+    //Será entidade fraca
+
     private String Logradouro;
     private int numero;
     private String complemento;
