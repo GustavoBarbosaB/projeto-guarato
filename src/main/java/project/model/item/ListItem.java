@@ -5,7 +5,7 @@ public class ListItem {
     private int qtd;
     private int id;
 
-    ListItem()
+    protected ListItem()
     {
     }
 

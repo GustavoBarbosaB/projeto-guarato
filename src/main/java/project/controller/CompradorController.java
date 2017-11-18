@@ -23,7 +23,6 @@ public class CompradorController {
 
 
     /**
-
      * @param cpf (obrigatorio)
      * @return retonar todos os compradores por cpf
      */
@@ -34,12 +33,12 @@ public class CompradorController {
 
         for(Comprador comprador:compradores)
         {
-            /**
+            /*
              * Testa se cpf e nome são iguais as passadas na URL
              * se for salva na lista de compradores a serem retornados
              */
             if(comprador.getCPF().equals(cpf)){
-            returnCompradores.add(comprador);
+                returnCompradores.add(comprador);
             }
         }
 

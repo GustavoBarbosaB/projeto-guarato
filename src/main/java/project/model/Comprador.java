@@ -7,6 +7,8 @@ public class Comprador {
     private String CPF;
     private Endereco End;
 
+    protected Comprador(){}
+
     public String getNome() {
         return Nome;
     }

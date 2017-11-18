@@ -5,17 +5,25 @@ import project.model.state.Iniciado;
 import project.model.state.Pendente;
 import project.model.state.State;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.List;
 import java.util.Map;
 
+@Entity
 public class Pedido {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
     private int comprador;
     private int vendedor;
-    List<ListItem> itens;
+    private List<ListItem> itens;
     private State state;
 
-    public Pedido()
+    protected Pedido()
     {
         state = new Iniciado();
     }

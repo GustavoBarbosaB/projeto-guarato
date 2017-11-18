@@ -4,6 +4,8 @@ public class Vendedor {
     private  String RazaoSocial;
     private  String CNPJ;
 
+    protected Vendedor(){}
+
     public String getRazaoSocial() {
         return RazaoSocial;
     }

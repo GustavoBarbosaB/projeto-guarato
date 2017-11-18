@@ -3,12 +3,13 @@ package project.model;
 public class Endereco {
 
     //Será entidade fraca
-
     private String Logradouro;
     private int numero;
     private String complemento;
     private String bairro;
     private String cidade;
+
+    protected Endereco(){}
 
     public String getLogradouro() {
         return Logradouro;

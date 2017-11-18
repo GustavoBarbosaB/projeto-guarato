@@ -6,7 +6,7 @@ public class Item {
     private String desc;
     private float val;
 
-    public Item() {
+    protected Item() {
 
     }
 
