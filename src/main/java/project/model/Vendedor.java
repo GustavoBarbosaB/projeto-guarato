@@ -9,7 +9,6 @@ public class Vendedor {
 
     private  String RazaoSocial;
     @Id
-    @JoinColumn(name="cnpj")
     private  String CNPJ;
 
     protected Vendedor(){}

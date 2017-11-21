@@ -8,8 +8,6 @@ public class ListItem {
     private int id;
 
     protected ListItem() {
-        this.qtd = -1;
-        this.id = -1;
     }
 
     ListItem(int qtd, int id) {
