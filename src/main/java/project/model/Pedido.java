@@ -28,6 +28,22 @@ public class Pedido {
         state = new Iniciado();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<ListItem> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ListItem> itens) {
+        this.itens = itens;
+    }
+
     public int getComprador() {
         return comprador;
     }

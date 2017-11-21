@@ -7,6 +7,8 @@ public class Item {
     private float val;
 
     protected Item() {
+        this.id = -1;
+        this.val = -1;
 
     }
 
@@ -18,11 +20,21 @@ public class Item {
     }
 
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getDesc() {
+
         return desc;
     }
 
     public void setDesc(String desc) {
+
         this.desc = desc;
     }
 
@@ -31,6 +43,7 @@ public class Item {
     }
 
     public void setVal(float val) {
+
         this.val = val;
     }
 }
