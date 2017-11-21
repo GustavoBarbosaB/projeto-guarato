@@ -1,5 +1,8 @@
 package project.model;
 
+import javax.persistence.Entity;
+
+
 public class Endereco {
 
     //Será entidade fraca

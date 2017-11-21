@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 public class Pedido {
@@ -18,30 +17,30 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
-    private int comprador;
-    private int vendedor;
+    private Comprador comprador;
+    private Vendedor vendedor;
     private List<ListItem> itens;
     private State state;
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
 
     protected Pedido()
     {
         state = new Iniciado();
-    }
-
-    public int getComprador() {
-        return comprador;
-    }
-
-    public void setComprador(int  comprador) {
-        this.comprador = comprador;
-    }
-
-    public int  getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(int  vendedor) {
-        this.vendedor = vendedor;
     }
 
     List<ListItem> getItems() {

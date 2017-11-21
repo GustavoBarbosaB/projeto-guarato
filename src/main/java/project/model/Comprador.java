@@ -1,7 +1,8 @@
 package project.model;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
 public class Comprador {
 
     private String Nome;

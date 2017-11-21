@@ -1,5 +1,7 @@
 package project.model.item;
 
+import javax.persistence.Entity;
+
 public class ListItem {
 
     private int qtd;
