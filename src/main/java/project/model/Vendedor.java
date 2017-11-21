@@ -1,7 +1,11 @@
 package project.model;
 
+import javax.persistence.Id;
+
 public class Vendedor {
+
     private  String RazaoSocial;
+    @Id
     private  String CNPJ;
 
     protected Vendedor(){}

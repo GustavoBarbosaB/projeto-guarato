@@ -1,9 +1,12 @@
 package project.model;
 
+import javax.persistence.Id;
+
 public class Comprador {
 
     private String Nome;
     //Será PK
+    @Id
     private String CPF;
     private Endereco End;
 

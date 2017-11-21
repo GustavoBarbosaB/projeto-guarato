@@ -1,7 +1,10 @@
 package project.model.item;
 
+import javax.persistence.Id;
+
 public class Item {
 
+    @Id
     private int id;
     private String desc;
     private float val;
@@ -16,7 +19,6 @@ public class Item {
         this.id = id;
 
     }
-
 
     public String getDesc() {
         return desc;
