@@ -1,9 +1,16 @@
 package project.model.state;
 
-public class Cancelado implements State {
+import project.model.Pedido;
+
+public class Cancelado extends State {
+
+    public Cancelado(Pedido pedido) {
+        super(pedido);
+    }
+
     @Override
     public State nextState() {
-        return new Cancelado();
+        return new Cancelado(this.getPedido());
     }
 
     @Override

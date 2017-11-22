@@ -1,15 +1,20 @@
 package project.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Vendedor {
 
-    private  String RazaoSocial;
     @Id
+    @NotNull
+    @Column(name = "cnpj_vendedor")
     private  String CNPJ;
+
+    @NotNull
+    private  String RazaoSocial;
 
     protected Vendedor(){}
 

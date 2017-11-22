@@ -6,9 +6,13 @@ import javax.persistence.*;
 public class Comprador {
 
     private String Nome;
-    //Será PK
+
     @Id
-    private String CPF;
+    @Column(name="cpf_comprador")
+    private String cpf;
+
+
+    @JoinColumn(name="endereco")
     private Endereco End;
 
     protected Comprador(){}
@@ -22,11 +26,11 @@ public class Comprador {
     }
 
     public String getCPF() {
-        return CPF;
+        return cpf;
     }
 
     public void setCPF(String CPF) {
-        this.CPF = CPF;
+        this.cpf = CPF;
     }
 
     public Endereco getEnd() {

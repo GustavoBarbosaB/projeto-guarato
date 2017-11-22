@@ -1,9 +1,11 @@
 package project.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import project.PersistRepository.PedidoRepository;
 import project.model.Pedido;
 
 import java.util.ArrayList;
@@ -14,12 +16,13 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 public class PedidoController {
 
-    private final AtomicLong counter = new AtomicLong();
-    private final List<Pedido> pedidos = new ArrayList<>();
+    @Autowired
+    private PedidoRepository pedidoRepository;
 
     @RequestMapping(value = "/pedido", method = GET)
     public List<Pedido> pedido(){
-        return pedidos;
+
+        return (List<Pedido>) pedidoRepository.findAll();
     }
 
 
@@ -28,19 +31,18 @@ public class PedidoController {
      * @return retonar todos pedidos por id
      */
     @RequestMapping(value="/item/{id}",method = GET)
-    public List<Pedido> pedido(@PathVariable("id") int id){
+    public Pedido pedido(@PathVariable("id") int id){
 
-        List<Pedido> returnPedidos = new ArrayList<>();
+        List<Pedido> dbPedidos = (List<Pedido>) pedidoRepository.findAll();
 
-        for(Pedido pedido: pedidos)
+        for(Pedido aux: dbPedidos)
         {
-
-            if(pedido.getId() == id){
-                returnPedidos.add(pedido);
+            if(aux.getId() == id){
+                return aux;
             }
         }
 
-        return returnPedidos;
+        return null;
     }
 
     @RequestMapping(value="/addPedido", method = POST)
@@ -49,30 +51,26 @@ public class PedidoController {
         if (result.hasErrors()) {
             return "error";
         }
-        pedido.setId((int) counter.incrementAndGet());
-        pedidos.add(pedido);
 
-        return "OK";
+        pedidoRepository.save(pedido);
+
+        return "Salvo com sucesso!";
     }
 
 
     @RequestMapping(value = "/removePedido/{id}", method = DELETE)
     public String removePedido(@PathVariable int id )
     {
-        int i;
-        for(i=0;i < pedidos.size();i++)
-        {
-            if(pedidos.get(i).getId() == id) {
-                pedidos.remove(i);
-                break;
-            }
-        }
+        Pedido pedido = pedidoRepository.findById(id);
 
-        if(i==pedidos.size())
-            return "Not exist";
+        if(pedido == null)
+            return "Nada removido!";
 
-        return "OK removed";
+        pedidoRepository.delete(id);
+
+        return "Removido com sucesso!";
     }
+/*
 
     @RequestMapping(value = "/changePedido/{id}", method = PUT)
     public String changePedido(@RequestBody Pedido pedido, @PathVariable int id)
@@ -92,16 +90,6 @@ public class PedidoController {
         return "OK changed";
     }
 
+*/
 
-
-    private void changePedidoHelp(Pedido newPedido, Pedido oldPedido)
-    {
-        if(newPedido.getId() != -1)
-            oldPedido.setId(newPedido.getId());
-        if(newPedido.getComprador() != oldPedido.getComprador())
-            oldPedido.setComprador(newPedido.getComprador());
-        if(newPedido.getVendedor() != oldPedido.getVendedor())
-            oldPedido.setVendedor(newPedido.getVendedor());
-
-    }
 }

@@ -1,26 +1,50 @@
 package project.model;
 
-import project.model.item.ListItem;
+import project.model.item.ItemPedido;
 import project.model.state.Iniciado;
 import project.model.state.Pendente;
 import project.model.state.State;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="pedido")
 public class Pedido {
+
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Estamos gerando o ID automaticamente através do próprio JPA
+     * A anotação @OneToOne faz com essa relação entre pedido e comprador e
+     * pedido e vendedor seja de "um para um". O Cascade usado é somente para
+     * dar o MERGE nas alterações nos objetos, não aceitando por exemplo
+     * REMOVE, PERSIST, REFRESH, DETACH, que são outras ações possíveis no
+     * método cascade.
+     */
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name = "id_pedido")
     private int id;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Comprador comprador;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Vendedor vendedor;
-    private List<ListItem> itens;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens;
+
+    @OneToOne
     private State state;
+
+
+    //--------------------------------------------------------------------------------------------------------------------/
+
 
     public Comprador getComprador() {
         return comprador;
@@ -40,21 +64,21 @@ public class Pedido {
 
     protected Pedido()
     {
-        state = new Iniciado();
+        state = new Iniciado(this);
     }
 
-    List<ListItem> getItems() {
+    List<ItemPedido> getItems() {
         return itens;
     }
 
-    public void setItems( List<ListItem> itens) {
+    public void setItems( List<ItemPedido> itens) {
         this.itens = itens;
     }
 
     public void cancel(){
 
         if(state instanceof Pendente)
-            state = Pendente.cancel();
+            state = Pendente.cancel(this);
     }
 
     public void changeState(){

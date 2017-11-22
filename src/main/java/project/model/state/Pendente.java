@@ -1,13 +1,20 @@
 package project.model.state;
 
-public class Pendente implements State {
-    @Override
-    public State nextState() {
-        return new Finalizado();
+import project.model.Pedido;
+
+public class Pendente extends State {
+
+    public Pendente(Pedido pedido) {
+        super(pedido);
     }
 
-    public static State cancel(){
-        return new Cancelado();
+    @Override
+    public State nextState() {
+        return new Finalizado(this.getPedido());
+    }
+
+    public static State cancel(Pedido pedido){
+        return new Cancelado(pedido);
     }
 
     @Override

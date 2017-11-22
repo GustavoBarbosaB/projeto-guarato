@@ -1,11 +1,11 @@
 package project.model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 
 
 public class Endereco {
 
-    //Será entidade fraca
     private String Logradouro;
     private int numero;
     private String complemento;
