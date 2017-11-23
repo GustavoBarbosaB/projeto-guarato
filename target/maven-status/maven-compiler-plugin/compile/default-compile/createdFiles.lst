@@ -1,0 +1,17 @@
+project/Application.class
+project/controller/PedidoController.class
+project/model/item/Item.class
+project/PersistRepository/ItemRepository.class
+project/model/state/Cancelado.class
+project/model/Vendedor.class
+project/model/state/State.class
+project/PersistRepository/CompradorRepository.class
+project/model/Comprador.class
+project/model/item/ItemPedido.class
+project/model/state/Finalizado.class
+project/model/Pedido.class
+project/PersistRepository/PedidoRepository.class
+project/PersistRepository/VendedorRepository.class
+project/model/state/Iniciado.class
+project/model/state/Pendente.class
+project/model/Endereco.class

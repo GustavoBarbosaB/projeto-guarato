@@ -2,6 +2,9 @@ package project.model.state;
 
 import project.model.Pedido;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Cancelado extends State {
 
     public Cancelado(Pedido pedido) {

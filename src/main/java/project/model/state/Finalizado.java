@@ -2,6 +2,9 @@ package project.model.state;
 
 import project.model.Pedido;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Finalizado extends State {
 
     public Finalizado(Pedido pedido) {

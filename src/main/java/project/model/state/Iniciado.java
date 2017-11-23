@@ -3,6 +3,9 @@ package project.model.state;
 
 import project.model.Pedido;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Iniciado extends State{
 
     public Iniciado(Pedido pedido) {
