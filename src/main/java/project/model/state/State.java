@@ -3,13 +3,16 @@ package project.model.state;
 import project.model.Pedido;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "entity")
-public abstract class State {
+@Table(name = "state")
+public abstract class State implements Serializable {
 
     @Id
-    @OneToOne(mappedBy = "pedido",cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_pedido")
     private Pedido pedido;
 
     public Pedido getPedido() {

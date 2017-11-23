@@ -1,9 +1,11 @@
 package project.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Comprador {
+@Table(name = "endereco")
+public class Comprador implements Serializable {
 
     private String Nome;
 
@@ -11,9 +13,8 @@ public class Comprador {
     @Column(name="cpf_comprador")
     private String cpf;
 
-
-    @JoinColumn(name="endereco")
-    private Endereco End;
+    @OneToOne(mappedBy = "comprador")
+    private Endereco endereco;
 
     protected Comprador(){}
 
@@ -34,10 +35,10 @@ public class Comprador {
     }
 
     public Endereco getEnd() {
-        return End;
+        return endereco;
     }
 
     public void setEnd(Endereco end) {
-        End = end;
+        this.endereco = end;
     }
 }

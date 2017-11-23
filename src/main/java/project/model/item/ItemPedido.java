@@ -3,10 +3,11 @@ package project.model.item;
 import project.model.Pedido;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "item_pedido")
-public class ItemPedido {
+public class ItemPedido implements Serializable {
 
     @Id
     @ManyToOne

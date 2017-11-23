@@ -1,13 +1,10 @@
 package project.model.item;
-
-
-
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "item")
-public class Item {
+public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

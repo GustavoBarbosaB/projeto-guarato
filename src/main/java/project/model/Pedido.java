@@ -6,11 +6,12 @@ import project.model.state.Pendente;
 import project.model.state.State;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name="pedido")
-public class Pedido {
+public class Pedido implements Serializable {
 
     public int getId() {
         return id;

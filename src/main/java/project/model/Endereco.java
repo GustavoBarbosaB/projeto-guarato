@@ -1,16 +1,23 @@
 package project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
+import java.io.Serializable;
 
-
-public class Endereco {
+@Entity
+@Table(name = "endereco")
+public class Endereco implements Serializable {
 
     private String Logradouro;
     private int numero;
     private String complemento;
     private String bairro;
     private String cidade;
+
+    @PrimaryKeyJoinColumn
+    @Id
+    @OneToOne
+    @JoinColumn(name = "id_comprador")
+    private Comprador comprador;
 
     protected Endereco(){}
 
