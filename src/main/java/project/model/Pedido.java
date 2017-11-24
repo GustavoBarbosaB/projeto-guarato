@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name="pedido")
-public class Pedido implements Serializable {
+public class Pedido  {
 
     public int getId() {
         return id;
@@ -31,20 +31,19 @@ public class Pedido implements Serializable {
     @Column(name = "id_pedido")
     private int id;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     private Comprador comprador;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     private Vendedor vendedor;
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany
     private List<ItemPedido> itens;
-
-    private String stateDB;
 
     @Transient
     private State state;
 
+    private String stateDB;
 
     //--------------------------------------------------------------------------------------------------------------------/
 

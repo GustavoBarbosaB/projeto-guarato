@@ -3,30 +3,23 @@ package project.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "endereco")
+@Embeddable
 public class Endereco implements Serializable {
 
-    private String Logradouro;
+    private String logradouro;
     private int numero;
     private String complemento;
     private String bairro;
     private String cidade;
 
-    @PrimaryKeyJoinColumn
-    @Id
-    @OneToOne
-    @JoinColumn(name = "id_comprador")
-    private Comprador comprador;
-
     protected Endereco(){}
 
     public String getLogradouro() {
-        return Logradouro;
+        return logradouro;
     }
 
     public void setLogradouro(String logradouro) {
-        Logradouro = logradouro;
+        this.logradouro = logradouro;
     }
 
     public int getNumero() {

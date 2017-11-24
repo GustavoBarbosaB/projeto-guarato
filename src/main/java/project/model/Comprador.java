@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "endereco")
-public class Comprador implements Serializable {
+public class Comprador  {
 
     private String Nome;
 
@@ -13,7 +13,7 @@ public class Comprador implements Serializable {
     @Column(name="cpf_comprador")
     private String cpf;
 
-    @OneToOne(mappedBy = "comprador")
+    @Embedded
     private Endereco endereco;
 
     protected Comprador(){}

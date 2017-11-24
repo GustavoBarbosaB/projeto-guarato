@@ -9,32 +9,16 @@ import java.io.Serializable;
 @Table(name = "item_pedido")
 public class ItemPedido implements Serializable {
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "id_item")
-    private Item item;
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "id_pedido")
-    private Pedido pedido;
+    @EmbeddedId
+    private ItemPedidoId id;
 
     private int qtd;
 
-    protected ItemPedido() {
+    public ItemPedido() {
     }
 
-    ItemPedido(Item item, int qtd) {
+    public ItemPedido(int qtd) {
         this.qtd = qtd;
-        this.item = item;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
     }
 
     public int getQtd() {

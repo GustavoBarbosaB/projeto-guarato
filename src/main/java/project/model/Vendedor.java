@@ -9,30 +9,30 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "vendedor")
-public class Vendedor implements Serializable {
+public class Vendedor {
 
     @Id
     @Column(name = "cnpj_vendedor")
-    private  String CNPJ;
+    private  String cnpj;
 
     @NotNull
-    private  String RazaoSocial;
+    private  String razaoSocial;
 
     protected Vendedor(){}
 
     public String getRazaoSocial() {
-        return RazaoSocial;
+        return razaoSocial;
     }
 
     public void setRazaoSocial(String razaoSocial) {
-        RazaoSocial = razaoSocial;
+        razaoSocial = razaoSocial;
     }
 
     public String getCNPJ() {
-        return CNPJ;
+        return cnpj;
     }
 
     public void setCNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+        this.cnpj = CNPJ;
     }
 }

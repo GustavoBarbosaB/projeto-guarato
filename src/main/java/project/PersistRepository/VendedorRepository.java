@@ -5,5 +5,5 @@ import project.model.Vendedor;
 
 public interface VendedorRepository extends CrudRepository<Vendedor,String> {
 
-        Vendedor findById(String cnpj);
+        Vendedor findByCnpj(String cnpj);
 }
