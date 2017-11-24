@@ -1,16 +1,10 @@
 package project.model.state;
 
-import project.model.Pedido;
-
-public class Finalizado extends State {
-
-    public Finalizado(Pedido pedido) {
-        super(pedido);
-    }
+public class Finalizado implements State {
 
     @Override
     public State nextState (){
-        return (new Finalizado(this.getPedido()));
+        return (new Finalizado());
     }
 
     @Override

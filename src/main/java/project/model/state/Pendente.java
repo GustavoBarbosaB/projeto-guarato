@@ -2,19 +2,17 @@ package project.model.state;
 
 import project.model.Pedido;
 
-public class Pendente extends State {
+import java.lang.annotation.Inherited;
 
-    public Pendente(Pedido pedido) {
-        super(pedido);
-    }
+public class Pendente implements State {
 
     @Override
     public State nextState() {
-        return new Finalizado(this.getPedido());
+        return new Finalizado();
     }
 
-    public static State cancel(Pedido pedido){
-        return new Cancelado(pedido);
+    public static State cancel(){
+        return new Cancelado();
     }
 
     @Override

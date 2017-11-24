@@ -40,7 +40,9 @@ public class Pedido implements Serializable {
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
 
-    @OneToOne
+    private String stateDB;
+
+    @Transient
     private State state;
 
 
@@ -65,7 +67,8 @@ public class Pedido implements Serializable {
 
     protected Pedido()
     {
-        state = new Iniciado(this);
+        state = new Iniciado();
+        stateDB = state.getState();
     }
 
     List<ItemPedido> getItems() {
@@ -78,19 +81,15 @@ public class Pedido implements Serializable {
 
     public void cancel(){
 
-        if(state instanceof Pendente)
-            state = Pendente.cancel(this);
+        if(state instanceof Pendente) {
+            state = Pendente.cancel();
+            stateDB = state.getState();
+        }
     }
 
     public void changeState(){
         state = state.nextState();
+        stateDB = state.getState();
     }
 
-    public State getState() {
-        return state;
-    }
-
-    public void setState(State state) {
-        this.state = state;
-    }
 }

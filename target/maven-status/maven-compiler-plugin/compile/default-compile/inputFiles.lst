@@ -1,0 +1,17 @@
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/Vendedor.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/state/State.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/state/Cancelado.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/PersistRepository/ItemRepository.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/PersistRepository/PedidoRepository.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/state/Finalizado.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/Application.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/controller/PedidoController.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/state/Iniciado.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/Endereco.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/PersistRepository/VendedorRepository.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/state/Pendente.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/Pedido.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/item/ItemPedido.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/Comprador.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/model/item/Item.java
+/home/tqi_udifab04/Projetos/projeto-guarato/src/main/java/project/PersistRepository/CompradorRepository.java

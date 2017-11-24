@@ -9,8 +9,8 @@
         <module name="projetoguarato" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="projetoguarato" target="9" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="projetoguarato" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
