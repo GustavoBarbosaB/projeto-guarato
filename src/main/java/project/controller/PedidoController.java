@@ -2,10 +2,7 @@ package project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.PersistRepository.PedidoRepository;
 import project.model.Pedido;
 
@@ -16,15 +13,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
+@RequestMapping("/pedidos")
 public class PedidoController {
 
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    @RequestMapping(value = "/pedido", method = GET)
+    @GetMapping("/")
     public List<Pedido> pedido(){
 
         return (List<Pedido>) pedidoRepository.findAll();
+
     }
 
 
@@ -32,7 +31,7 @@ public class PedidoController {
      * @param id (obrigatorio)
      * @return retonar todos pedidos por id
      */
-    @RequestMapping(value="/item/{id}",method = GET)
+    @GetMapping("/{id}")
     public Pedido pedido(@PathVariable("id") int id){
 
         List<Pedido> dbPedidos = (List<Pedido>) pedidoRepository.findAll();
@@ -47,7 +46,7 @@ public class PedidoController {
         return null;
     }
 
-    @RequestMapping(value="/addPedido", method = POST)
+    @PostMapping
     public String addPedido(@RequestBody Pedido pedido, BindingResult result){
 
         if (result.hasErrors()) {
@@ -59,8 +58,7 @@ public class PedidoController {
         return "Salvo com sucesso!";
     }
 
-
-    @RequestMapping(value = "/removePedido/{id}", method = DELETE)
+    @DeleteMapping("/{id}")
     public String removePedido(@PathVariable int id )
     {
         Pedido pedido = pedidoRepository.findById(id);
